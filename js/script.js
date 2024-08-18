@@ -67,6 +67,7 @@ while (continuar) {
 
     if (confirmacion == "no"){
         continuar = false;
+        alert("Gracias por usar nuestra calculadora. Hasta luego!")
         console.log("Gracias por usar nuestra calculadora. Hasta luego!")
     }
 
