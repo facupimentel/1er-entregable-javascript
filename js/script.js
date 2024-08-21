@@ -5,19 +5,7 @@ let continuar = true;
 
 while (continuar) {
     
-    let sexo 
-    
-    sexoCorrecto = true
-    
-    while (sexoCorrecto) {
-        sexo = prompt("Ingresa tu sexo: \n -masculino \n -femenino").toLowerCase();
-        if (sexo === "masculino" || sexo === "femenino") {
-            sexoCorrecto = false 
-        } else {
-            alert("Sexo no válido. Por favor ingrese 'masculino' o 'femenino'.");
-        }
-    }
-    
+    let sexo = prompt("Ingrese su sexo: \n -masculino \n -femenino ")
     let peso = parseFloat(prompt("Ingresa tu peso en kg:"))
     let altura = parseInt(prompt("Ingresa tu altura en cm:"))
     let edad = parseInt(prompt("Ingresa tu edad:"))
@@ -39,14 +27,14 @@ while (continuar) {
     }
 
     let resultadoBmr = bmr(sexo, peso, altura, edad)
-    alert("tus calorias de mantenimiento son " + resultadoBmr + "kcal")
-    console.log("tus calorias de mantenimiento son " + resultadoBmr + "kcal")
+    alert("tus calorias de mantenimiento son " + resultadoBmr + " kcal")
+    console.log("tus calorias de mantenimiento son " + resultadoBmr + " kcal")
 
     let objetivo = prompt("Cual es tu objetivo:\n -mantener \n -subir \n -bajar")
 
     let objetivoCalorias
 
-    function calcularObjetivo () {
+    function calcularObjetivo (objetivo) {
         
         switch (objetivo){
     
@@ -75,13 +63,23 @@ while (continuar) {
     
         }
     }
+    
+    calcularObjetivo(objetivo)
+    
 
-    calcularObjetivo()
+    const resultados = {
+        sexo: sexo,
+        peso: peso,
+        altura: altura,
+        objetivo: objetivo,
+
+    }
+    console.log(resultados)
 
 
     const confirmacion = prompt("desea hacer otro calculo? \n -si \n -no").toLowerCase();
 
-    function despedida (){
+    function despedida (confirmacion){
         if (confirmacion == "no") {
             continuar = false
             alert("Gracias por usar nuestra calculadora. Hasta luego!")
@@ -93,7 +91,7 @@ while (continuar) {
         }
     }
 
-    despedida();
+    despedida(confirmacion);
 }
 
 
